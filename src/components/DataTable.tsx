@@ -8,12 +8,15 @@ import { formatCardNumber } from "@/utils/cardNumberFormatter";
 const columns: TableColumnsType<Data> = [
   {
     title: "شماره تراکنش",
+    align: "center",
     render: (value) => (
       <Button
-        dir="ltr"
+        block
+        dir="rtl"
         type="text"
         icon={<CopyOutlinedIcon className="text-md text-blue-500" />}
-        className="flex flex-row items-center gap-3"
+        className="flex flex-row items-center justify-center
+        gap-3"
         onClick={() => navigator.clipboard.writeText(value)}
       >
         {value}
@@ -24,26 +27,29 @@ const columns: TableColumnsType<Data> = [
   },
   {
     title: "وضعیت تراکنش",
+    align: "center",
     render: (value) => Status[value],
     dataIndex: "status",
     key: "status",
   },
   {
     title: "تاریخ پرداخت",
+    align: "center",
     render: (value) => formatTime(value),
     dataIndex: "paidAt",
     key: "paidAt",
   },
   {
     title: "مبلغ",
+    align: "center",
     render: (value) => formatPrice(value, "﷼"),
     dataIndex: "amount",
     key: "amount",
   },
   {
     title: "شماره کارت",
-    // render: (value) => formatCardNumber(value),
-
+    align: "center",
+    render: (value) => <div className="ltr-dir">{formatCardNumber(value)}</div>,
     dataIndex: "cardNumber",
     key: "cardNumber",
   },

@@ -5,3 +5,7 @@
 .rtl-dir {
   direction: rtl;
 }
+
+.ltr-dir {
+  direction: ltr;
+}
