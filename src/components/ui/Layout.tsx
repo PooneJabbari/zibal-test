@@ -7,11 +7,11 @@ const { Header, Content } = BaseLayout;
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <BaseLayout className="h-screen">
-      <Header className="items-center flex">
-        <FireFilledIcon className="text-3xl text-neutral-200" />
+      <Header className="rtl-dir flex items-center">
+        <FireFilledIcon className="text-4xl text-blue-100" />
       </Header>
       <Content className="p-12">
-        <div className="p-6 rounded-lg bg-slate-200 min-h-full shadow-xl shadow-slate-300 rtl-dir">
+        <div className="rtl-dir min-h-full rounded-lg bg-slate-200 p-6 shadow-xl shadow-slate-300">
           {children}
         </div>
       </Content>
