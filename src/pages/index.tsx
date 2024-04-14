@@ -1,9 +1,12 @@
 import React from "react";
-import { Button } from "antd";
+import { Layout } from "@/components/ui";
+import { DataTable } from "@/components/DataTable";
 
 const Home = () => (
   <div className="App">
-    <Button type="primary">دکمه</Button>
+    <Layout>
+      <DataTable />
+    </Layout>
   </div>
 );
 
