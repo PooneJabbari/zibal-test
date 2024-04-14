@@ -1,6 +1,14 @@
-import "@/styles/globals.css";
+import "../styles/globals.css";
+import React from "react";
 import type { AppProps } from "next/app";
+import { ThemeProvider } from "@/components/ui";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <ThemeProvider>
+    <main>
+      <Component {...pageProps} />
+    </main>
+  </ThemeProvider>
+);
+
+export default App;
