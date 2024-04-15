@@ -1,14 +1,14 @@
-//Originally i needed to have an Input. but then i realized we only need a number input so i thought why not?
+//Originally i needed to have an Input. but then i realized how cool InputNumber is so i thought why not?
 
 import { FC } from "react";
-import { Input as BaseInput } from "antd";
+import { InputNumber } from "antd";
 import { ErrorText } from "./ErrorText";
 
 type Props = {
   title: string;
   suffix: string;
   value: number;
-  onChange: (text: number) => void;
+  onChange: (text: number | null) => void;
   error?: string;
 };
 
@@ -22,11 +22,15 @@ export const NumberInput: FC<Props> = ({
   return (
     <div className="space-y-3">
       <p>{title}</p>
-      <BaseInput
-        type="number"
-        suffix={<p className="text-neutral-300">{suffix}</p>}
+      <InputNumber<number>
         value={value}
-        onChange={(e) => onChange(e.target.valueAsNumber)}
+        className="w-full"
+        suffix={<p className="text-neutral-300">{suffix}</p>}
+        formatter={(value) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        parser={(value) =>
+          value?.replace(/\$\s?|(,*)/g, "") as unknown as number
+        }
+        onChange={onChange}
       />
       <ErrorText error={error} />
     </div>
