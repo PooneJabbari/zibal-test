@@ -1,5 +1,5 @@
 import { Data, Status, data } from "@/api/data";
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import {
   Table,
   CopyOutlinedIcon,
@@ -82,6 +82,7 @@ const columns: TableColumnType<Data>[] = [
 export const DataTable: FC = () => {
   return (
     <Table
+      rowKey={(data) => data.trackId}
       dataSource={data}
       direction="rtl"
       columns={columns}

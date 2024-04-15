@@ -1,10 +1,6 @@
-import { Button, Input, InputRef } from "antd";
+import { Button, FilterDropdownProps, Input, InputRef, Table } from "../ui";
 import { FC, Key, useRef } from "react";
 import { SearchOutlinedIcon } from "../ui/icon";
-import {
-  FilterConfirmProps,
-  FilterDropdownProps,
-} from "antd/es/table/interface";
 
 const handleSearch = (confirm: FilterDropdownProps["confirm"]) => {
   confirm();
@@ -19,7 +15,7 @@ type Props = {
   clearFilters?: (() => void) | undefined;
   selectedKeys: Key[];
   setSelectedKeys: (selectedKeys: Key[]) => void;
-  confirm: (param?: FilterConfirmProps) => void;
+  confirm: (param?: { closeDropdown: boolean }) => void;
 };
 
 export const FilterForm: FC<Props> = ({

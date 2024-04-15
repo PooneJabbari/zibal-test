@@ -1,4 +1,6 @@
-import { Layout as BaseLayout, Menu } from "antd";
+//This was not asked for in the explained project. but the screen would look so pale and empty without it. hope you don't mind
+
+import { Layout as BaseLayout } from "antd";
 import { FC, PropsWithChildren } from "react";
 import { FireFilledIcon } from "./icon";
 

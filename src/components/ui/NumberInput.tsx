@@ -1,4 +1,6 @@
-import { ChangeEventHandler, FC } from "react";
+//Originally i needed to have an Input. but then i realized we only need a number input so i thought why not?
+
+import { FC } from "react";
 import { Input as BaseInput } from "antd";
 import { ErrorText } from "./ErrorText";
 
@@ -23,7 +25,7 @@ export const NumberInput: FC<Props> = ({
       <BaseInput
         type="number"
         suffix={<p className="text-neutral-300">{suffix}</p>}
-        value={value.toString()}
+        value={value}
         onChange={(e) => onChange(e.target.valueAsNumber)}
       />
       <ErrorText error={error} />
