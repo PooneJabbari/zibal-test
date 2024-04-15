@@ -15,6 +15,7 @@ const handleReset = (clearFilters: () => void) => {
 };
 
 type Props = {
+  placeHolder: string;
   clearFilters?: (() => void) | undefined;
   selectedKeys: Key[];
   setSelectedKeys: (selectedKeys: Key[]) => void;
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export const FilterForm: FC<Props> = ({
+  placeHolder,
   clearFilters,
   selectedKeys,
   setSelectedKeys,
@@ -34,7 +36,7 @@ export const FilterForm: FC<Props> = ({
       <Input
         ref={searchInput}
         className="rtl-dir"
-        placeholder="جستجوی تراکنش"
+        placeholder={placeHolder}
         value={selectedKeys[0]}
         onChange={(e) =>
           setSelectedKeys(e.target.value ? [e.target.value] : [])
